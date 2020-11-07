@@ -6,6 +6,8 @@
 
 {kak-repo}[Kakoune] syntax highlighting for the {zzz-repo}[zzz data format].
 
+zzz currently requires 2 space indentation, so it is recommended to set the `indentwidth` option to `2` for the zzz filetype.
+
 == License
 
 This repository is licensed under the link:LICENSE[BSD 0-Clause License].
