@@ -36,7 +36,7 @@ add-highlighter shared/zzz/code/ regex '^ *("[^\n"]*"|[^#:;,"=\[\]\n]*)(?=:)' 1:
 add-highlighter shared/zzz/code/ regex '(?<=:) *("[^\n"]*"|[^#:;,"=\[\]\n]*)(?=:)' 1:keyword
 add-highlighter shared/zzz/code/ regex '(?<=,) *("[^\n"]*"|[^#:;,"=\[\]\n]*)(?=:)' 1:keyword
 add-highlighter shared/zzz/code/ regex '(?<=;) *("[^\n"]*"|[^#:;,"=\[\]\n]*)(?=:)' 1:keyword
-add-highlighter shared/zzz/code/ regex '\b(true|false|\d+(?:\.\d+)?(?:[eE][+-]?\d*)?)\b' 0:value
+add-highlighter shared/zzz/code/ regex '(\btrue|\bfalse|(?:\+|-)?\b\d+(?:\.\d+)?(?:[eE][+-]?\d*)?)\b' 0:value
 
 # Commands
 define-command -hidden zzz-trim-indent %{
