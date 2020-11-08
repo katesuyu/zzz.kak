@@ -25,18 +25,16 @@ provide-module zzz %{
 
 # Highlighters
 add-highlighter shared/zzz            regions
-add-highlighter shared/zzz/code       default-region group
 add-highlighter shared/zzz/comment    region '^ *\K#' '$' fill comment
-add-highlighter shared/zzz/multiline  region -match-capture -recurse '\[(=*)\[' '\[(=*)\[' '\](=*)\]' group
-add-highlighter shared/zzz/multiline/ fill string
-add-highlighter shared/zzz/multiline/ regex '\[(=*)\[.+\](=*)\](?=:)' 0:keyword
+add-highlighter shared/zzz/string     region '(?:^|[:,;]) *\K"' '$|"' regex '(".*"(?=:))|.+' 0:string 1:keyword
+add-highlighter shared/zzz/literal    region '(?:^|[:,;]) *\K(?![ #"\[\]])' '$|(?=[:,;])' group
+add-highlighter shared/zzz/multiline  region -match-capture -recurse '\[(=*)\[' '\[(=*)\[' '\](=*)\] *' group
 
-add-highlighter shared/zzz/code/ regex '[^#:;,"=\[\]\n]+|"[^\n"]*"' 0:string
-add-highlighter shared/zzz/code/ regex '^ *("[^\n"]*"|[^#:;,"=\[\]\n]*)(?=:)' 1:keyword
-add-highlighter shared/zzz/code/ regex '(?<=:) *("[^\n"]*"|[^#:;,"=\[\]\n]*)(?=:)' 1:keyword
-add-highlighter shared/zzz/code/ regex '(?<=,) *("[^\n"]*"|[^#:;,"=\[\]\n]*)(?=:)' 1:keyword
-add-highlighter shared/zzz/code/ regex '(?<=;) *("[^\n"]*"|[^#:;,"=\[\]\n]*)(?=:)' 1:keyword
-add-highlighter shared/zzz/code/ regex '(\btrue|\bfalse|(?:\+|-)?\b\d+(?:\.\d+)?(?:[eE][+-]?\d*)?)\b' 0:value
+add-highlighter shared/zzz/literal/   regex '.+(?:$|(?=[,;]))' 0:string
+add-highlighter shared/zzz/literal/   regex '.+(?=:)' 0:keyword
+add-highlighter shared/zzz/literal/   regex '\btrue|\bfalse|(?:\B[+-])?\b\d+(?:[.]\d+)?(?:[eE][+-]?\d*)?\b' 0:value
+add-highlighter shared/zzz/multiline/ fill string
+add-highlighter shared/zzz/multiline/ regex '.+(?=:)(?::\K)?' 0:keyword
 
 # Commands
 define-command -hidden zzz-trim-indent %{
