@@ -6,7 +6,10 @@
 
 {kak-repo}[Kakoune] syntax highlighting for the {zzz-repo}[zzz data format].
 
-zzz currently requires 2 space indentation, so it is recommended to set the `indentwidth` option to `2` for the zzz filetype.
+Note that you may have to configure `indentwidth` to `2` for `filetype=zzz`.
+
+[[screenshot]]
+image::screenshot.png[zzz syntax]
 
 == License
 
