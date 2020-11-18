@@ -25,12 +25,12 @@ provide-module zzz %{
 
 # Highlighters
 add-highlighter shared/zzz            regions
-add-highlighter shared/zzz/comment    region '^ *\K#' '$' fill comment
+add-highlighter shared/zzz/comment    region '#' '$' fill comment
 add-highlighter shared/zzz/string     region '(?:^|[:,;]) *\K"' '$|"' regex '(".*"(?=:))|.+' 0:string 1:keyword
-add-highlighter shared/zzz/literal    region '(?:^|[:,;]) *\K(?![ #"\[\]])' '$|(?=[:,;])' group
+add-highlighter shared/zzz/literal    region '(?:^|[:,;]) *\K(?![ #"\[])' '$|(?=[#:,;])' group
 add-highlighter shared/zzz/multiline  region -match-capture -recurse '\[(=*)\[' '\[(=*)\[' '\](=*)\] *' group
 
-add-highlighter shared/zzz/literal/   regex '.+(?:$|(?=[,;]))' 0:string
+add-highlighter shared/zzz/literal/   regex '.+(?:$|(?=[#,;]))' 0:string
 add-highlighter shared/zzz/literal/   regex '.+(?=:)' 0:keyword
 add-highlighter shared/zzz/literal/   regex '\btrue|\bfalse|(?:\B[+-])?\b\d+(?:[.]\d+)?(?:[eE][+-]?\d*)?\b' 0:value
 add-highlighter shared/zzz/multiline/ fill string
