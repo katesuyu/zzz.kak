@@ -32,7 +32,7 @@ add-highlighter shared/zzz/multiline  region -match-capture -recurse '\[(=*)\[' 
 
 add-highlighter shared/zzz/literal/   regex '.+(?:$|(?=[#,;]))' 0:string
 add-highlighter shared/zzz/literal/   regex '.+(?=:)' 0:keyword
-add-highlighter shared/zzz/literal/   regex '\btrue|\bfalse|(?:\B[+-])?[.]?\d+(?:\d+|\b[.]+)*(?:[eE][+-]?(?:\d+\b)?)?' 0:value
+add-highlighter shared/zzz/literal/   regex '\btrue|\bfalse|(?:\B[+-])?(?:\B[.])?\b\d+(?:\d+|\b[.]+)*(?:(?<=\d)\b|(?<=[.])\B|[eE][+-]?\d+\b)' 0:value
 add-highlighter shared/zzz/multiline/ fill string
 add-highlighter shared/zzz/multiline/ regex '.+(?=:)(?::\K)?' 0:keyword
 
